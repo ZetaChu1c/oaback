@@ -17,7 +17,7 @@ import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 env = environ.Env()
 BASE_DIR = Path(__file__).resolve().parent.parent
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 
 # Quick-start development settings - unsuitable for production
@@ -93,13 +93,13 @@ WSGI_APPLICATION = "oaback.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        "NAME": env.str('DB_NAME', 'ctos'),
-        "USER": env.str('DB_USER', "root"),
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": env.str("DB_NAME", "ctos"),
+        "USER": env.str("DB_USER", "root"),
         "PASSWORD": env.str("DB_PASSWORD", "9523"),
-        "HOST": env.str('DB_HOST', 'localhost'),
-        "PORT": env.str('DB_PORT', 3306),
+        "HOST": env.str("DB_HOST", "localhost"),
+        "PORT": env.str("DB_PORT", 3306),
     }
 }
 
@@ -178,9 +178,9 @@ DEFAULT_FROM_EMAIL = "1308698143@qq.com"
 
 # CELERY相关配置
 # 中间人的配置
-CELERY_BROKER_URL = env.str('CELERY_BROKER_URL', 'redis://127.0.0.1:6379/1')
+CELERY_BROKER_URL = env.str("CELERY_BROKER_URL", "redis://127.0.0.1:6379/1")
 # 指定结果的接受地址
-CELERY_RESULT_BACKEND = env.str('CELERY_RESULT_BACKEND', 'redis://127.0.0.1:6379/2')
+CELERY_RESULT_BACKEND = env.str("CELERY_RESULT_BACKEND", "redis://127.0.0.1:6379/2")
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 
 
@@ -188,38 +188,36 @@ CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": env.str('CACHE_URL', "redis://127.0.0.1:6379/3"),
+        "LOCATION": env.str("CACHE_URL", "redis://127.0.0.1:6379/3"),
     }
 }
 
 LOGGING = {
     "version": 1,
-    'disable_existing_loggers': True,
-    'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+    "disable_existing_loggers": True,
+    "formatters": {
+        "verbose": {
+            "format": "%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s"
         },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
+        "simple": {"format": "%(levelname)s %(message)s"},
+    },
+    "handlers": {
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
+        },
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": "/data/log/oa.log",
+            "formatter": "verbose",
         },
     },
-    'handlers': {
-        'console':{
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose'
-        },
-       'file': {
-           'level': 'DEBUG',
-           'class': 'logging.FileHandler',
-           'filename': '/data/log/oa.log',
-           'formatter': 'verbose'
-       },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console','file'],
-            'level': 'DEBUG',
+    "loggers": {
+        "django": {
+            "handlers": ["console", "file"],
+            "level": "DEBUG",
         },
     },
 }
