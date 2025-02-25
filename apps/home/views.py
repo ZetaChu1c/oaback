@@ -11,11 +11,17 @@ from django.db.models import Count
 from django.views.decorators.cache import cache_page
 from django.utils.decorators import method_decorator
 
+# 健康检查，用于检查服务是否正常
+class HealthCheckView(APIView):
+    def get(self, request):
+        return Response({"code": 200})
+
 
 class LatestInformView(APIView):
     """
     返回最新的10条通知
     """
+
     # 这里的cache_page是缓存15分钟，也就是15分钟内发布新的通知，不会立即显示
     # @method_decorator(cache_page(60 * 15))
     def get(self, request):
@@ -56,8 +62,3 @@ class DepartmentStaffCountView(APIView):
         )
         print("=" * 10)
         return Response(rows)
-
-
-class HealthCheckView(APIView):
-    def get(self, request):
-        return Response({"code": 200})
