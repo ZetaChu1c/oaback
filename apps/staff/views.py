@@ -49,8 +49,8 @@ def send_active_email(request, email):
     # 发送一个链接，用户点击这个链接后，跳转到激活的页面，才能激活。
     # 为了区分用户，在发送链接邮件中，该链接中应该要包含这个用户的邮箱
     # 针对邮箱要进行加密：AES
-    message = f"请点击以下链接激活账号：{active_url}"
-    subject = f"【oaback】账号激活"
+    message = f"请点击以下链接激活账号：{active_url}\n，初始密码为111111。"
+    subject = f"【ctOS】账号激活"
 
     # 这个为调用了django自带的发送邮件的方法
     # send_mail(subject, recipient_list=[email], message=message, from_email=settings.DEFAULT_FROM_EMAIL)
