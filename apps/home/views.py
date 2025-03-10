@@ -33,7 +33,7 @@ class LatestInformView(APIView):
 
 class LatestAbsentView(APIView):
 
-    @method_decorator(cache_page(60 * 15))
+    # @method_decorator(cache_page(60 * 15))
     def get(self, request):
         # 董事会的人，可以看到所有人的考勤信息，非董事会的人，只能看到自己部门的考勤信息
         current_user = request.user
@@ -49,7 +49,7 @@ class LatestAbsentView(APIView):
 
 class DepartmentStaffCountView(APIView):
 
-    @method_decorator(cache_page(60 * 15))
+    # @method_decorator(cache_page(60 * 15))
     def get(self, request):
         rows = OADepartment.objects.annotate(staff_count=Count("staffs")).values(
             "name", "staff_count"
