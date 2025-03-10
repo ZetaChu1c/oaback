@@ -1,0 +1,16 @@
+2025-03-10 16:29:31,834 - celery.worker.consumer.connection - INFO - Connected to redis://127.0.0.1:6379/1
+2025-03-10 16:29:31,837 - celery.worker.consumer.mingle - INFO - mingle: searching for neighbors
+2025-03-10 16:29:32,889 - celery.worker.consumer.mingle - INFO - mingle: all alone
+2025-03-10 16:29:32,896 - celery.worker.pidbox - INFO - pidbox: Connected to redis://127.0.0.1:6379/1.
+2025-03-10 16:29:32,901 - celery.apps.worker - INFO - celery@DESKTOP-4TK2LHN ready.
+2025-03-10 16:29:52,905 - py.warnings - WARNING - C:\Users\ctOS\Desktop\oaback\.venv\Lib\site-packages\celery\concurrency\gevent.py:48: UserWarning: libuv only supports millisecond timer resolution; all times less will be set to 1 ms
+  g = self._Greenlet.spawn_later(secs, entry)
+
+2025-03-10 17:35:58,332 - celery.worker.consumer.connection - INFO - Connected to redis://127.0.0.1:6379/1
+2025-03-10 17:35:58,334 - celery.worker.consumer.mingle - INFO - mingle: searching for neighbors
+2025-03-10 17:35:59,348 - celery.worker.consumer.mingle - INFO - mingle: all alone
+2025-03-10 17:35:59,368 - celery.apps.worker - INFO - celery@DESKTOP-4TK2LHN ready.
+2025-03-10 17:35:59,369 - celery.worker.pidbox - INFO - pidbox: Connected to redis://127.0.0.1:6379/1.
+2025-03-10 17:36:59,433 - py.warnings - WARNING - C:\Users\ctOS\Desktop\oaback\.venv\Lib\site-packages\celery\concurrency\gevent.py:48: UserWarning: libuv only supports millisecond timer resolution; all times less will be set to 1 ms
+  g = self._Greenlet.spawn_later(secs, entry)
+
