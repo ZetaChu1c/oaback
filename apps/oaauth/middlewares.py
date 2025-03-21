@@ -27,7 +27,7 @@ class LoginCheckMiddleware(MiddlewareMixin):
         # 2. 如果返回一个HttpResponse对象，那么将不会执行视图，以及后面的中间件代码
 
         if request.path in self.white_list or request.path.startswith(
-            settings.MEDIA_URL
+            "/api" + settings.MEDIA_URL
         ):
             request.user = AnonymousUser()
             request.auth = None
